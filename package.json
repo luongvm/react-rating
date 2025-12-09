@@ -1,16 +1,28 @@
 {
     "name": "react-rating-float",
-    "version": "1.1.9",
-    "description": "React Rating Maintained by Luong",
-    "main": "/dist/react-rating-float.min.js",
+    "version": "2.0.0",
+    "description": "React Rating Component with Float Number Support",
+    "type": "module",
+    "main": "./dist/react-rating-float.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/react-rating-float.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
     "scripts": {
-        "build": "build-example && npm run build-babel && npm run build-dist-dev && npm run build-dist-prod",
-        "build-dist-dev": "NODE_ENV=development webpack --config webpack.config --colors",
-        "build-dist-prod": "NODE_ENV=production webpack --config webpack.config --progress --colors -p",
-        "build-babel": "babel ./src/ReactRatingFloat.jsx --out-file ./src/ReactRatingFloat.js",
-        "build-example": "browserify ./example/index.js -t [ babelify --presets [ es2015 stage-1 react ] --plugins [ transform-object-assign ] ] | uglifyjs -cm > ./example/bundle.min.js",
-        "lint": "eslint ./src --fix",
-        "test": "echo \"Comming soon ;)\" && exit 0"
+        "dev": "vite example",
+        "build": "tsc && vite build",
+        "preview": "vite preview example",
+        "lint": "eslint src example --ext ts,tsx",
+        "lint:fix": "eslint src example --ext ts,tsx --fix",
+        "format": "prettier --write \"src/**/*.{ts,tsx}\" \"example/**/*.{ts,tsx}\"",
+        "type-check": "tsc --noEmit",
+        "test": "echo \"Coming soon ;)\" && exit 0"
     },
     "author": "luongvm183@gmail.com",
     "license": "MIT",
@@ -19,37 +31,24 @@
         "url": "git+https://github.com/joturako/react-rating.git"
     },
     "devDependencies": {
-        "ava": "^0.13.0",
-        "babel-cli": "^6.14.0",
-        "babel-core": "^6.14.0",
-        "babel-eslint": "^6.1.2",
-        "babel-loader": "^6.2.5",
-        "babel-plugin-add-module-exports": "^0.2.1",
-        "babel-plugin-transform-object-assign": "^6.8.0",
-        "babel-preset-es2015": "^6.14.0",
-        "babel-preset-react": "^6.11.1",
-        "babel-preset-stage-1": "^6.13.0",
-        "babel-register": "^6.14.0",
-        "babelify": "^7.3.0",
-        "browserify": "^13.1.0",
-        "chai": "^3.5.0",
-        "enzyme": "^2.2.0",
-        "eslint": "^3.5.0",
-        "eslint-config-airbnb": "^11.0.0",
-        "eslint-loader": "^1.5.0",
-        "eslint-plugin-import": "^1.14.0",
-        "eslint-plugin-jsx-a11y": "^2.2.1",
-        "eslint-plugin-react": "^6.2.0",
-        "react": "^15.4.2",
-        "react-dom": "^15.3.1",
-        "sinon": "^1.17.3",
-        "styled-components": "^1.4.4",
-        "uglify-js": "^2.7.3",
-        "webpack": "^1.13.2",
-        "webpack-umd-external": "^1.0.2"
+        "@eslint/js": "^9.15.0",
+        "@types/react": "^18.3.12",
+        "@types/react-dom": "^18.3.1",
+        "@vitejs/plugin-react": "^4.3.4",
+        "eslint": "^9.15.0",
+        "eslint-plugin-react-hooks": "^5.0.0",
+        "eslint-plugin-react-refresh": "^0.4.14",
+        "globals": "^15.12.0",
+        "prettier": "^3.3.3",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.15.0",
+        "vite": "^6.0.1",
+        "vite-plugin-dts": "^4.3.0"
     },
     "peerDependencies": {
-        "react": "^15.4.2",
-        "react-dom": "^15.3.1"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     }
 }

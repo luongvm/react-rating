@@ -1,0 +1,24 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-width: 100%;
+  z-index: 0;
+}
+
+.stars {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+}
+
+.star {
+  display: block;
+}
